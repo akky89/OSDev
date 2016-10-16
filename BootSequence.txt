@@ -1,0 +1,11 @@
+1. When compute switched on or reset, it runs through a sseries of diagnostics called POST - "Power On Self Test".
+2. BOIS loads bootable devices only if it sees magic number "0x55 0xAA" at byte 510 and 510 on the bootable device.
+3. BOIS always loads the OS at address 0x7C00 and it may be refered as CS:IP 0x0000:0x7C00 or 0x07C0:0x0000. Both are same.
+
+TIP: always set CS:IP yourself as soon as Bootloader loads. So it will not confuse you.
+
+4. CPU always boots in "Real Mode".
+
+TIP: never think all the register at this point contains 0 value they might have some garbage values as well.
+
+5. Then bootloader loads kernal into mermoy and passes control to it.
